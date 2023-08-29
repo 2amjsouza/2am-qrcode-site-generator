@@ -1,0 +1,3 @@
+<div>
+    mail message
+</div>

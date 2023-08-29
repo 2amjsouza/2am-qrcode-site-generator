@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    background: #3d3f46;
+}
+
+h1, h2, h3, h5, h6, span {
+    color: #ffffff;
+}
+
+h4 {
+    color: #1c74f8;
+}

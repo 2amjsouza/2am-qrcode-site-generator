@@ -5,26 +5,16 @@ namespace App\Livewire\Traits;
 use App\Enum\FormatEnum;
 use Illuminate\Support\Collection;
 
-trait FormatTrait
+trait FormsTrait
 {
     public Collection $formats;
-    public int $activeFormat;
     public array $formFieldsRules = [];
-    public Collection $form;
-
-    public function selectFormat(int $format)
-    {
-        $this->activeFormat = $format;
-        $this->formFieldsRules = $this->getFormFieldsRulesByFormat($this->activeFormat);
-
-        $this->form->put($format, []);
-    }
 
     /**
      * @param int $format
      * @return array
      */
-    protected function getFormFieldsRulesByFormat(int $format): array
+    protected function getRulesByForamt(int $format): array
     {
         $fields = [
             FormatEnum::Text->value => [
@@ -104,7 +94,7 @@ trait FormatTrait
      *
      * @return array
      */
-    protected function buildRules(): array
+    protected function buildFormatRules(): array
     {
         $rules = [];
 
