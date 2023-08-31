@@ -2,14 +2,33 @@
 
 namespace App\Livewire\Traits;
 
+use App\Livewire\QrCodeComponent;
+use Illuminate\Support\Facades\Storage;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+use Livewire\WithFileUploads;
+
 trait LogoTrait
 {
-    public string $path = '';
+    use WithFileUploads;
+
+    public $file;
+
+    public function applyLogo()
+    {
+        $this->validate($this->getLogoRules());
+        /** @var TemporaryUploadedFile $filename */
+        $filename = uniqid() . '.' . $this->file->getClientOriginalExtension();
+        #$filename->storePubliclyAs('public/qrcode', $filename);
+        $this->file->storePubliclyAs('public/qrcode', $filename);
+
+        $this->dispatch('apply-logo', '../storage/app/public/qrcode/' . $filename, 'local')
+            ->to(QrCodeComponent::class);
+    }
 
     public function getLogoRules()
     {
         return [
-            'path' => 'string|nullable|regex:(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*))"'
+            'file' => 'image|required|max:1024',
         ];
     }
 }

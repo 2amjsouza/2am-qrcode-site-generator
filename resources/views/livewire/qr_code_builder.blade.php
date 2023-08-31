@@ -1,4 +1,4 @@
-<div class="mt-3 bg-gray-900 p-5">
+<div class="mt-3 bg-gray-900 p-8">
     <div class="grid grid-cols-5 gap-4">
         <div class="col-span-4">
             <div>
@@ -19,8 +19,8 @@
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
-                <div class="mt-5">
-                    <h6 class="text-xl font-bold mt-0 mb-5 text-black-500">
+                <div class="mt-1">
+                    <h6 class="text-xl font-bold mt-3 mb-5 text-black-500">
                         Options
                     </h6>
                     <div class="mt-3">
@@ -62,13 +62,13 @@
                         <x-options />
                     </div>
                 </div>
-                <x-box class="mt-5">
+                <x-box>
                     <livewire:qr-code-form :formatType="$activeFormat" :key="$activeFormat"/>
                 </x-box>
             </div>
         </div>
 
-        <div class="p-10">
+        <div class="p-5">
             <livewire:qr-code-component />
         </div>
     </div>

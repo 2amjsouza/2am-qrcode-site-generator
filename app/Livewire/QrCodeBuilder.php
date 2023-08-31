@@ -2,17 +2,21 @@
 
 namespace App\Livewire;
 
-use App\Factories\QrCodeFactory;
 use App\Enum\FormatEnum;
+use App\Livewire\Traits\ColorsTrait;
+use App\Livewire\Traits\LabelTrait;
+use App\Livewire\Traits\LogoTrait;
+use App\Livewire\Traits\MarginTrait;
 use App\Livewire\Traits\OptionsTrait;
-use Da\QrCode\QrCode;
-use Da\QrCode\Writer\JpgWriter;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class QrCodeBuilder extends Component
 {
+    use ColorsTrait;
+    use LabelTrait;
+    use MarginTrait;
+    use LogoTrait;
     use OptionsTrait;
 
     public Collection $formats;
