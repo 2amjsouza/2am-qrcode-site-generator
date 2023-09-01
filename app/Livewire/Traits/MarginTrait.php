@@ -6,7 +6,7 @@ use App\Livewire\QrCodeComponent;
 
 trait MarginTrait
 {
-    public int $margins = 15;
+    public string|int $margins = 15;
 
     public function applyMargin()
     {

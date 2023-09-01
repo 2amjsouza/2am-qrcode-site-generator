@@ -134,7 +134,6 @@ class QrCodeComponent extends Component
         $pathName = 'qrcode/' . uniqid() . ".$extension";
         Storage::put($pathName, $this->qrCode->writeString());
 
-        //TODO command to delete files
         return Storage::download($pathName, 'qrcode');
     }
 
