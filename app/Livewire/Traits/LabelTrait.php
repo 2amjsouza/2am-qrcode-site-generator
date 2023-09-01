@@ -9,7 +9,7 @@ trait LabelTrait
 {
     public string $label = '';
     public int $size = 16;
-    public string $align;
+    public string $align = LabelInterface::ALIGN_CENTER;
 
     public function applyLabel()
     {

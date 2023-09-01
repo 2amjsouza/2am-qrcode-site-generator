@@ -29,7 +29,6 @@ class QrCodeFactory
 
             return new QrCode($qrCodeFormat);
         } catch (Exception $exception) {
-            throw $exception;
             throw new Exception('Format must be enum of ' . FormatEnum::class);
         }
     }

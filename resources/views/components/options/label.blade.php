@@ -16,8 +16,10 @@
                 <option value="{{\Da\QrCode\Contracts\LabelInterface::ALIGN_LEFT}}"> Left </option>
                 <option value="{{\Da\QrCode\Contracts\LabelInterface::ALIGN_RIGHT}}"> Right </option>
             </select>
+            <x-error :for="'align'"/>
         </div>
     </div>
+
     <x-inputs.success-button type="button" wire:click.prevent="applyLabel">
         Apply
     </x-inputs.success-button>

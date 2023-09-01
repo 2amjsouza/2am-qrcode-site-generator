@@ -36,8 +36,8 @@ trait FormsTrait
             ],
             FormatEnum::ICal->value => [
                 'summary' => 'string|required',
-                'startTimestamp' => 'int|required',
-                'endTimestamp' => 'int|required',
+                'startTimestamp' => 'date|required',
+                'endTimestamp' => 'date|required',
             ],
             FormatEnum::MailMessage->value => [
                 'email' => 'email|required',
@@ -87,22 +87,5 @@ trait FormsTrait
         ];
 
         return $fields[$format];
-    }
-
-    /**
-     * Build rules in run time for current form/fields associated with current qrcode format
-     *
-     * @return array
-     */
-    protected function buildFormatRules(): array
-    {
-        $rules = [];
-
-        foreach ($this->formFieldsRules as $field => $fieldsRules) {
-            $field = "form.{$this->activeFormat}.{$field}";
-            $rules[$field] = $fieldsRules;
-        }
-
-        return $rules;
     }
 }

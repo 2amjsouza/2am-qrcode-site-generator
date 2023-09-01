@@ -8,11 +8,4 @@
     <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <livewire:qr-code-builder/>
     </div>
-    <script>
-        document.addEventListener('livewire:initialized', () => {
-            Livewire.hook('component.init', ({ component }) => {
-                initDateTimeComps()
-            })
-        })
-    </script>
 </x-layout>

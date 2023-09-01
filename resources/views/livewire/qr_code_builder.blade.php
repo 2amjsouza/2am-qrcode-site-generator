@@ -20,12 +20,9 @@
             </div>
             <div class="grid grid-cols-2 gap-4">
                 <div class="mt-1">
-                    <h6 class="text-xl font-bold mt-3 mb-5 text-black-500">
-                        Options
-                    </h6>
                     <div class="mt-3">
                         <div class="grid grid-cols-4">
-                            <x-menu-item wire:click="toggleOption({{\App\Enum\OptionsEnum::Colors->value}})" class="flex flex-row">
+                            <x-menu-item wire:click="toggleOption({{\App\Enum\OptionsEnum::Colors->value}})" class="flex flex-row {{$activeOption == \App\Enum\OptionsEnum::Colors->value ? 'text-yellow-300 bg-gray-800' : ''}}">
                                 <div class="basis-1/4">
                                     <x-icons.colors />
                                 </div>
@@ -33,7 +30,7 @@
                                     Colors
                                 </div>
                             </x-menu-item>
-                            <x-menu-item wire:click="toggleOption({{\App\Enum\OptionsEnum::Margin->value}})" class="flex flex-row">
+                            <x-menu-item wire:click="toggleOption({{\App\Enum\OptionsEnum::Margin->value}})" class="flex flex-row {{$activeOption == \App\Enum\OptionsEnum::Margin->value ? 'text-yellow-300 bg-gray-800' : ''}}">
                                 <div class="basis-1/4">
                                     <x-icons.screen />
                                 </div>
@@ -41,7 +38,7 @@
                                     Margin
                                 </div>
                             </x-menu-item>
-                            <x-menu-item wire:click="toggleOption({{\App\Enum\OptionsEnum::Label->value}})" class="flex flex-row">
+                            <x-menu-item wire:click="toggleOption({{\App\Enum\OptionsEnum::Label->value}})" class="flex flex-row {{$activeOption == \App\Enum\OptionsEnum::Label->value ? 'text-yellow-300 bg-gray-800' : ''}}">
                                 <div class="basis-1/4">
                                     <x-icons.label />
                                 </div>
@@ -49,7 +46,7 @@
                                     Label
                                 </div>
                             </x-menu-item>
-                            <x-menu-item wire:click="toggleOption({{\App\Enum\OptionsEnum::Logo->value}})" class="flex flex-row">
+                            <x-menu-item wire:click="toggleOption({{\App\Enum\OptionsEnum::Logo->value}})" class="flex flex-row {{$activeOption == \App\Enum\OptionsEnum::Logo->value ? 'text-yellow-300 bg-gray-800' : ''}}">
                                 <div class="basis-1/4">
                                     <x-icons.image />
                                 </div>
@@ -71,5 +68,57 @@
         <div class="p-5">
             <livewire:qr-code-component />
         </div>
+
+        <script>
+            function app() {
+                return {
+                    isOpen: false,
+                    colors: ['#2196F3', '#009688', '#9C27B0', '#FFEB3B', '#afbbc9', '#4CAF50', '#2d3748', '#f56565', '#ed64a6'],
+                    colorSelected: '#2196F3',
+                }
+            }
+
+            const pickr = Pickr.create({
+                el: '.color-picker',
+                theme: 'nano', // or 'monolith', or 'nano'
+
+                swatches: [
+                    'rgba(244, 67, 54, 1)',
+                    'rgba(233, 30, 99, 0.95)',
+                    'rgba(156, 39, 176, 0.9)',
+                    'rgba(103, 58, 183, 0.85)',
+                    'rgba(63, 81, 181, 0.8)',
+                    'rgba(33, 150, 243, 0.75)',
+                    'rgba(3, 169, 244, 0.7)',
+                    'rgba(0, 188, 212, 0.7)',
+                    'rgba(0, 150, 136, 0.75)',
+                    'rgba(76, 175, 80, 0.8)',
+                    'rgba(139, 195, 74, 0.85)',
+                    'rgba(205, 220, 57, 0.9)',
+                    'rgba(255, 235, 59, 0.95)',
+                    'rgba(255, 193, 7, 1)'
+                ],
+
+                components: {
+
+                    // Main components
+                    preview: true,
+                    opacity: true,
+                    hue: true,
+
+                    // Input / output Options
+                    interaction: {
+                        hex: true,
+                        rgba: true,
+                        hsla: true,
+                        hsva: true,
+                        cmyk: true,
+                        input: true,
+                        clear: true,
+                        save: true
+                    }
+                }
+            });
+        </script>
     </div>
 </div>

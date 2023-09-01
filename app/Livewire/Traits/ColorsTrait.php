@@ -28,16 +28,17 @@ trait ColorsTrait
                 'b' => 255,
             ];
 
-            $this->strForeground = "#[{$this->foreground['r']},{$this->foreground['g']},{$this->foreground['b']}]";
-            $this->strBackground = "#[{$this->background['r']},{$this->background['g']},{$this->background['b']}]";
+            $this->strForeground = "#000000";
+            $this->strBackground = "#FFFFFF";
         }
     }
 
     public function applyColors()
     {
-        $this->validate($this->getColorsRules());
         $this->background = $this->extractColors($this->strBackground);
         $this->foreground = $this->extractColors($this->strForeground);
+
+        $this->validate($this->getColorsRules());
 
         $this->dispatch('apply-colors', $this->foreground, $this->background)
             ->to(QrCodeComponent::class);
@@ -45,13 +46,17 @@ trait ColorsTrait
 
     public function extractColors(string $color)
     {
-        $color = preg_replace('/[\#\[\]]/', null, $color);
-        $color = explode(',', $color);
+        list($red, $green, $blue) = array_map(
+            function ($c) {
+                return hexdec(str_pad($c, 2, $c));
+            },
+            str_split(ltrim($color, '#'), strlen($color) > 4 ? 2 : 1)
+        );
 
         return [
-            'r' => $color[0],
-            'g' => $color[1],
-            'b' => $color[2],
+            'r' => $red,
+            'g' => $green,
+            'b' => $blue,
         ];
     }
 
@@ -61,8 +66,8 @@ trait ColorsTrait
     public function getColorsRules(): array
     {
         return [
-            'strForeground' => 'string|required|regex:/^\#\[\d+\,\d+\,\d+\]$/',
-            'strBackground' => 'string|required|regex:/^\#\[\d+\,\d+\,\d+\]$/'
+            'strForeground' => 'string|required|regex:/^\#[A-f,0-9]{6}$/',
+            'strBackground' => 'string|required|regex:/^\#[A-f,0-9]{6}$/'
         ];
     }
 }

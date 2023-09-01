@@ -18,7 +18,7 @@ trait LogoTrait
         $this->validate($this->getLogoRules());
         /** @var TemporaryUploadedFile $filename */
         $filename = uniqid() . '.' . $this->file->getClientOriginalExtension();
-        #$filename->storePubliclyAs('public/qrcode', $filename);
+
         $this->file->storePubliclyAs('public/qrcode', $filename);
 
         $this->dispatch('apply-logo', '../storage/app/public/qrcode/' . $filename, 'local')

@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Enum\FormatEnum;
 use App\Factories\QrCodeFactory;
+use Carbon\Carbon;
 use Da\QrCode\Label;
 use Da\QrCode\QrCode;
 use Da\QrCode\Writer\JpgWriter;
@@ -84,6 +85,8 @@ class QrCodeComponent extends Component
 
     public function build()
     {
+        $this->normalizeOptions();
+
         /** @var QrCode $qrCode */
         $qrCode = QrCodeFactory::build($this->format, $this->options);
 
@@ -133,6 +136,23 @@ class QrCodeComponent extends Component
 
         //TODO command to delete files
         return Storage::download($pathName, 'qrcode');
+    }
+
+    /**
+     * set the options the meet current's format data type
+     * @return void
+     */
+    protected function normalizeOptions(): void
+    {
+        if ($this->format === FormatEnum::ICal->value) {
+            $this->options['startTimestamp'] = Carbon::parse($this->options['startTimestamp'])
+                ->timezone(null)
+                ->getTimestamp();
+
+            $this->options['endTimestamp'] = Carbon::parse($this->options['endTimestamp'])
+                ->timezone(null)
+                ->getTimestamp();
+        }
     }
 
     public function render()
