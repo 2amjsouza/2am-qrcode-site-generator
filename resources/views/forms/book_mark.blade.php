@@ -9,7 +9,7 @@
     <x-inputs.text wire:model="form.url"/>
     <x-error :for="'form.url'"/>
 
-    <x-inputs.success-button wire:click="create" class="mt-2">
+    <x-inputs.success-button wire:click="create" class="mt-3">
         Create QR Code
     </x-inputs.success-button>
 </div>

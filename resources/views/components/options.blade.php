@@ -4,7 +4,7 @@
     @elseif($this->activeOption == \App\Enum\OptionsEnum::Margin->value)
         <x-options.margin/>
     @elseif($this->activeOption == \App\Enum\OptionsEnum::Label->value)
-        <x-options.Label/>
+        <x-options.label/>
     @elseif($this->activeOption == \App\Enum\OptionsEnum::Logo->value)
         <x-options.logo/>
     @endif

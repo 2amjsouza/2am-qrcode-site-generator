@@ -237,6 +237,7 @@
         </header>
         <!-- main -->
         <main>
+            <div class="landing">
             {{$slot}}
             <!--<div class="page-not-found">
                 <section class="hero-default " style="background-image:url(/images/404.svg)">
@@ -244,6 +245,7 @@
                     <a class="btn btn--default btn--red" href="/">Go to Homepage</a>
                 </section>
             </div>-->
+            </div>
         </main>
         <footer class="footer">
             <div class="logo-placeholder">

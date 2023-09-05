@@ -2,7 +2,9 @@
     <h6 class="text-xl mb-5 font-bold"> Wifi Format </h6>
     <div>
         <span> Authentication </span>
-        <select wire:model="form.authentication" class="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full my-3">
+        <select wire:model="form.authentication" class="px-3 placeholder-slate-300 text-slate-600
+            relative bg-white bg-white rounded text-sm border-0 shadow
+            outline-none focus:outline-none focus:ring w-full h-8 mt-2">
             <option value="">Select</option>
             <option value="web">WEP</option>
             <option value="wpa2">WPA2</option>

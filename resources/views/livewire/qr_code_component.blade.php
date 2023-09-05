@@ -1,11 +1,11 @@
 <div>
     <img src="{{$this->getUri()}}" />
 
-    <x-inputs.secondary-button wire:click="download('png')" class="w-full mt-3">
+    <x-inputs.secondary-button wire:click="download('png')">
         Download .png
     </x-inputs.secondary-button>
 
-    <x-inputs.secondary-button wire:click="download('jpg')" class="w-full mt-3">
+    <x-inputs.secondary-button wire:click="download('jpg')">
         Download .jpg
     </x-inputs.secondary-button>
 </div>

@@ -11,7 +11,9 @@
         </div>
         <div>
             Alignment
-            <select wire:model="align" class="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full my-3">
+            <select wire:model="align" class="px-3 placeholder-slate-300 text-slate-600
+            relative bg-white bg-white rounded text-sm border-0 shadow
+            outline-none focus:outline-none focus:ring w-full h-8 mt-2">
                 <option value="{{\Da\QrCode\Contracts\LabelInterface::ALIGN_CENTER}}"> Center </option>
                 <option value="{{\Da\QrCode\Contracts\LabelInterface::ALIGN_LEFT}}"> Left </option>
                 <option value="{{\Da\QrCode\Contracts\LabelInterface::ALIGN_RIGHT}}"> Right </option>

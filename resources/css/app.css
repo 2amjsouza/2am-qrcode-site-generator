@@ -13,3 +13,7 @@ h1, h2, h3, h5, h6, span {
 h4 {
     color: #1c74f8;
 }
+
+span, p {
+    font-size: 14px;
+}
