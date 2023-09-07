@@ -18,7 +18,7 @@
             />
         </div>
         <div class="flex mt-2">
-            <a class="h-8 w-8 input-button cursor-pointer rounded-r-md bg-gray-100 border-gray-300 border-t border-b border-r p-2"
+            <a class="h-10 w-10 input-button cursor-pointer rounded-r-md bg-[#FCFCFC] border-gray-100 border p-3 shadow"
                 title="clear" data-clear>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#c53030">
                     <path fill-rule="evenodd"

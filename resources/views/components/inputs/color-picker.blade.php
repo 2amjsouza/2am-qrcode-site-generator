@@ -42,10 +42,10 @@
         })"
 >
     <div class="my-2 flex flex-row w-full">
-        <div class="h-8 font-sm lowercase basis-11/12 bg-white text-black rounded rounded-r-none p-3 flex items-center">
+        <div class="h-10 font-sm lowercase basis-11/12 bg-white text-black rounded rounded-r-none p-3 flex items-center">
             {{ $this->{$model} }}
         </div>
-        <div class="bg-gray-100 rounded rounded-l-none border-r-gray-400 h-8 p-1">
+        <div class="rounded rounded-l-none border-gray-100 h-10 p-1 bg-[#FCFCFC]">
             <div wire:ignore>
                 <button class="color-picker border-black">
                     Pick a Color

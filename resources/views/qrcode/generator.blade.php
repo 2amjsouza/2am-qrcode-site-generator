@@ -1,21 +1,38 @@
 <x-layout>
-    <div class="landing">
-        <div class="hero__wrapper">
+    <div class="about">
+        <section class="hero-default">
+            <h2>
+                QR Code Generator DEMO
+            </h2>
+        </section>
 
-            <section class="hero my-10 text-center">
-                <div class="hero__wrapper mt-4 mb-24">
-                    <h1>QR Code Generator DEMO</h1>
+        <section class="info">
+            <div class="info__box">
+                <div>
+                    <h5>
+                        This is a DEMO to Open Source Library
+                        <a href="https://github.com/2amigos/qrcode-library" target="_blank">
+                            2amigos/qrcode-library
+                        </a>.
+                    </h5>
+
+                    <livewire:qr-code-builder/>
+
+                    <Link href='/contact'>
+                    <a class='btn btn--default btn--red'>Talk to us!</a>
+                    </Link>
                 </div>
 
-                <p class="text-center my-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non eros libero. Curabitur aliquet pharetra est,
-                    at suscipit nisl efficitur porta. Fusce hendrerit pharetra varius. Duis dolor quam, vehicula quis tellus ac,
-                    viverra eleifend magna. Ut quis ipsum aliquam, tempor metus et, interdum diam. Donec varius scelerisque lacus
-                </p>
-
-                <livewire:qr-code-builder/>
-
-            </section>
-        </div>
+                <div class='dots'>
+                    <span class='dot'></span>
+                    <span class='dot'></span>
+                    <span class='dot'></span>
+                    <span class='dot'></span>
+                    <span class='dot'></span>
+                    <span class='dot'></span>
+                </div>
+            </div>
+        </section>
     </div>
+
 </x-layout>

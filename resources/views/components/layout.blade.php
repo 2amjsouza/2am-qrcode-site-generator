@@ -61,7 +61,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
     @vite('resources/css/app.css')
     @vite('resources/css/2am.css')
-    @vite('resources/css/site.css')
     @vite('resources/js/app.js')
 </head>
     <div id="__next">
@@ -237,15 +236,7 @@
         </header>
         <!-- main -->
         <main>
-            <div class="landing">
             {{$slot}}
-            <!--<div class="page-not-found">
-                <section class="hero-default " style="background-image:url(/images/404.svg)">
-                    <h2>404</h2>
-                    <a class="btn btn--default btn--red" href="/">Go to Homepage</a>
-                </section>
-            </div>-->
-            </div>
         </main>
         <footer class="footer">
             <div class="logo-placeholder">

@@ -1,5 +1,5 @@
 <div>
-    <h6 class="text-xl pb-5 mt-0 pt-0 font-bold"> Text Format </h6>
+    <h1 class="text-xl text-center center text-black mt-0"> Text Format </h1>
 
     <span> Text </span>
     <x-inputs.text wire:model="form.text"/>

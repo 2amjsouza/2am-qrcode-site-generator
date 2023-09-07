@@ -1,30 +1,24 @@
-<div class="mt-3 border-t-2 border-t-tred pt-5">
-    <div class="grid grid-cols-5 gap-4">
+<div class="border-t-2 border-t-tred">
+    <div class="col-span-3 grid grid-cols-3 gap-4 mt-5">
         <div class="col-span-2">
             <div>
-                <div class="space-y-8">
-                    <h1 class="text-3xl text-center center font-bold mt-0">
-                        Format
-                    </h1>
-                    <p class="text-center">
-                        You can select a QR Code format to be created. Each format can interact directly with specific APPs.
-                    </p>
-                </div>
-
                 <!--<div class="grid grid-cols-2 mt-5">-->
-                    <select wire:model.lazy="activeFormat" class="px-3 placeholder-slate-300 text-slate-600
-                        relative bg-white bg-white rounded text-sm border-0 shadow
-                        outline-none focus:outline-none focus:ring w-full h-8 mt-2">
-                        @foreach($this->formats as $format)
-                            <option value="{{$format->value}}"> {{$format->name}} </option>
-                        @endforeach
-                    </select>
-                <!--</div>-->
+                <h1 class="text-3xl text-center center mt-0 text-black">
+                    Format
+                </h1>
+                <p class="text-center">
+                    You can select a QR Code format to be created. Each format can interact directly with specific APPs.
+                </p>
+
+                <x-inputs.select wire:model.lazy="activeFormat">
+                    @foreach($this->formats as $format)
+                        <option value="{{$format->value}}"> {{$format->name}} </option>
+                    @endforeach
+                </x-inputs.select>
             </div>
 
-            <!-- Options -->
-            <div class="mt-5 spacing-y-8">
-                <h1 class="text-xl text-center center font-bold mt-0">
+            <div class="mt-5">
+                <h1 class="text-xl text-center center text-black mt-0">
                     Options
                 </h1>
 
@@ -36,14 +30,13 @@
 
                 <x-options />
             </div>
-        </div>
-        <x-box class="col-span-3 grid grid-cols-3 gap-4">
-            <div class="col-span-2">
+
+            <div class="mt-5">
                 <livewire:qr-code-form :formatType="$activeFormat" :key="$activeFormat"/>
             </div>
-            <div class="p-2 pt-0">
-                <livewire:qr-code-component />
-            </div>
-        </x-box>
+        </div>
+        <div class="p-5 pt-0">
+            <livewire:qr-code-component />
+        </div>
     </div>
 </div>
