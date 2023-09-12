@@ -8,7 +8,6 @@ use Illuminate\Support\Collection;
 trait FormsTrait
 {
     public Collection $formats;
-    public array $formFieldsRules = [];
 
     /**
      * @param int $format

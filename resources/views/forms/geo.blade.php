@@ -1,19 +1,19 @@
 <div>
-    <h6 class="text-xl mb-5 font-bold"> Geo Format </h6>
-
-    <span> Lat </span>
-    <x-inputs.text wire:model="form.lat"/>
+    <label for="lat">
+        Latitude <span class="text-tred">*</span>
+    </label>
+    <x-inputs.text wire:model.lazy="form.lat" id="lat"/>
     <x-error :for="'form.lat'"/>
 
-    <span> Lng </span>
-    <x-inputs.text wire:model="form.lng"/>
+    <label for="lng">
+        Longitude <span class="text-tred">*</span>
+    </label>
+    <x-inputs.text wire:model.lazy="form.lng" id="lng"/>
     <x-error :for="'form.lng'"/>
 
-    <span> Altitude </span>
-    <x-inputs.text wire:model="form.altitude"/>
+    <label for="altitude">
+        Altitude <span class="text-tred">*</span>
+    </label>
+    <x-inputs.text wire:model.lazy="form.altitude" id="altitude"/>
     <x-error :for="'form.altitude'"/>
-
-    <x-inputs.success-button wire:click="create" class="mt-2">
-        Create QR Code
-    </x-inputs.success-button>
 </div>

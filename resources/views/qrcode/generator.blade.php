@@ -2,25 +2,28 @@
     <div class="about">
         <section class="hero-default">
             <h2>
-                QR Code Generator DEMO
+                QR Code Generator demo
             </h2>
         </section>
 
         <section class="info">
             <div class="info__box">
                 <div>
-                    <h5>
-                        This is a DEMO to Open Source Library
-                        <a href="https://github.com/2amigos/qrcode-library" target="_blank">
+                    <h6>
+                        <div class="flex">
+                            <div class="bg-gray-300 rounded-full mr-5">
+                                <i class="icon icon--github"></i>
+                            </div>
+                            This is a DEMO to the Open Source Library
+                        </div>
+
+                        <a href="https://github.com/2amigos/qrcode-library" target="_blank"
+                           class="text-tred hover:text-black transition duration-150 font-bold flex">
                             2amigos/qrcode-library
-                        </a>.
-                    </h5>
+                        </a>
+                    </h6>
 
                     <livewire:qr-code-builder/>
-
-                    <Link href='/contact'>
-                    <a class='btn btn--default btn--red'>Talk to us!</a>
-                    </Link>
                 </div>
 
                 <div class='dots'>

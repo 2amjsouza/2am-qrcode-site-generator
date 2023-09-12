@@ -1,67 +1,67 @@
 <div>
-    <h6 class="text-xl mb-5 font-bold"> Me Card Format </h6>
     <div class="grid grid-cols-2 gap-4">
         <div>
-            <span> First Name </span>
-            <x-inputs.text wire:model="form.firstName"/>
+            <label for="firstName">
+                First Name <span class="text-tred">*</span>
+            </label>
+            <x-inputs.text wire:model.lazy="form.firstName" id="firstName"/>
             <x-error :for="'form.firstName'"/>
         </div>
 
         <div>
-            <span> Last Name </span>
-            <x-inputs.text wire:model="form.lastName"/>
+            <label for="lastName">
+                Last Name <span class="text-tred">*</span>
+            </label>
+            <x-inputs.text wire:model.lazy="form.lastName" id="lastName"/>
             <x-error :for="'form.lastName'"/>
         </div>
 
         <div>
-            <span> Sound </span>
-            <x-inputs.text wire:model="form.sound"/>
+            <label for="sound"> Sound </label>
+            <x-inputs.text wire:model.lazy="form.sound" id="sound"/>
             <x-error :for="'form.sound'"/>
         </div>
 
         <div>
-            <span> Phone </span>
-            <x-inputs.text wire:model="form.phone"/>
+            <label for="phone"> Phone </label>
+            <x-inputs.text wire:model.lazy="form.phone" id="phone"/>
             <x-error :for="'form.phone'"/>
         </div>
 
         <div>
-            <span> Video Phone </span>
-            <x-inputs.text wire:model="form.videoPhone"/>
+            <label for="video"> Video Phone </label>
+            <x-inputs.text wire:model.lazy="form.videoPhone" id="video"/>
             <x-error :for="'form.videoPhone'"/>
         </div>
 
         <div>
-            <span> Email </span>
-            <x-inputs.text wire:model="form.email"/>
+            <label for="email"> Email </label>
+            <x-inputs.text wire:model.lazy="form.email" id="email"/>
             <x-error :for="'form.email'"/>
         </div>
 
         <div>
-            <span> Note </span>
-            <x-inputs.text wire:model="form.note"/>
+            <label for="note"> Note </label>
+            <x-inputs.text wire:model.lazy="form.note" id="note"/>
             <x-error :for="'form.note'"/>
         </div>
 
         <div>
-            <span> Address </span>
-            <x-inputs.text wire:model="form.address"/>
+            <label for="address"> Address </label>
+            <x-inputs.text wire:model.lazy="form.address" id="address"/>
             <x-error :for="'form.address'"/>
         </div>
 
         <div>
-            <span> URL </span>
-            <x-inputs.text wire:model="form.url"/>
+            <label for="url"> URL </label>
+            <x-inputs.text wire:model.lazy="form.url" id="url"/>
             <x-error :for="'form.url'"/>
         </div>
 
         <div>
-            <span> Nick Name </span>
-            <x-inputs.text wire:model="form.nickName"/>
+            <label for="nick"> Nick Name </label>
+            <x-inputs.text wire:model.lazy="form.nickName" id="nick"/>
             <x-error :for="'form.nickName'"/>
         </div>
     </div>
-    <x-inputs.success-button wire:click="create" class="mt-2">
-        Create QR Code
-    </x-inputs.success-button>
 </div>

@@ -1,19 +1,19 @@
 <div>
-    <h6 class="text-xl mb-5 font-bold"> Bitcoin Format </h6>
-
-    <span> Address </span>
-    <x-inputs.text wire:model="form.address"/>
+    <label for="address">
+        Address <span class="text-tred">*</span>
+    </label>
+    <x-inputs.text wire:model.lazy="form.address" id="address"/>
     <x-error :for="'form.address'"/>
 
-    <span> Amount </span>
-    <x-inputs.text wire:model="form.amount"/>
+    <label for="amount">
+        Amount <span class="text-tred">*</span>
+    </label>
+    <x-inputs.text wire:model="form.amount" id="amount"/>
     <x-error :for="'form.amount'"/>
 
-    <span> Name </span>
-    <x-inputs.text wire:model="form.name"/>
+    <label for="name">
+        Name <span class="text-tred">*</span>
+    </label>
+    <x-inputs.text wire:model="form.name" id="name"/>
     <x-error :for="'form.name'"/>
-
-    <x-inputs.success-button wire:click="create" class="mt-2">
-        Create QR Code
-    </x-inputs.success-button>
 </div>

@@ -7,7 +7,7 @@
     <div class="flex flex-row">
         <div class="basis-11/12">
             <x-inputs.text
-                wire:model="{{$model}}"
+                wire:model.lazy="{{$model}}"
                 x-ref="datetime"
                 type="text"
                 id="datetime"

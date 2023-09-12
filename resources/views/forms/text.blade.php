@@ -1,11 +1,7 @@
 <div>
-    <h1 class="text-xl text-center center text-black mt-0"> Text Format </h1>
-
-    <span> Text </span>
-    <x-inputs.text wire:model="form.text"/>
+    <lable for="text">
+        Text <span class="text-tred">*</span>
+    </lable>
+    <x-inputs.text wire:model.lazy="form.text" id="text"/>
     <x-error :for="'form.text'"/>
-
-    <x-inputs.success-button wire:click="create" class="mt-3">
-        Create QR Code
-    </x-inputs.success-button>
 </div>

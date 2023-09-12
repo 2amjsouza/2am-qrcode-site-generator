@@ -1,15 +1,13 @@
 <div>
-    <h6 class="text-xl mb-5 font-bold"> Book Mark Format </h6>
-
-    <span> Title </span>
-    <x-inputs.text wire:model="form.title"/>
+    <label for="title">
+        Title <span class="text-tred">*</span>
+    </label>
+    <x-inputs.text wire:model.lazy="form.title" id="title"/>
     <x-error :for="'form.title'"/>
 
-    <span> URL </span>
-    <x-inputs.text wire:model="form.url"/>
+    <label for="url">
+        URL <span class="text-tred">*</span>
+    </label>
+    <x-inputs.text wire:model.lazy="form.url" id="url"/>
     <x-error :for="'form.url'"/>
-
-    <x-inputs.success-button wire:click="create" class="mt-3">
-        Create QR Code
-    </x-inputs.success-button>
 </div>

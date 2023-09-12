@@ -33,6 +33,11 @@ trait ColorsTrait
         }
     }
 
+    public function colorSelected()
+    {
+        $this->applyColors();
+    }
+
     public function applyColors()
     {
         $this->background = $this->extractColors($this->strBackground);

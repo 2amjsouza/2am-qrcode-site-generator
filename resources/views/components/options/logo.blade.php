@@ -1,11 +1,9 @@
-<div class="mt-5">
-    <form wire:submit.prevent="applyLogo">
-        Logo
-        <x-inputs.upload type="input" type="file" wire:model="file" />
-        <x-error :for="'file'"/>
+<div>
+    <h1 class="text-black text-[18px] font-bold mb-3"> Logo </h1>
+    <span>
+        Loren ipsum dolor describe function
+    </span>
 
-        <x-inputs.success-button type="submit">
-            Apply
-        </x-inputs.success-button>
-    </form>
+    <x-inputs.upload :model="'file'" />
+    <x-error :for="'file'"/>
 </div>

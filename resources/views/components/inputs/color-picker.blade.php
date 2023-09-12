@@ -1,4 +1,6 @@
-<div x-data="{ colorField: $wire.$entangle('{{$model}}', true)}" x-init="
+<div x-data="{
+        colorField: $wire.entangle('{{$model}}')
+    }" x-init="
         let pickr = Pickr.create({
             el: '.color-picker',
             theme: 'nano',
@@ -39,13 +41,22 @@
             let selectedColor = color.toHEXA().toString()
             pickr.setColor(selectedColor)
             colorField = selectedColor
-        })"
->
+        })
+
+        pickr.on('show', () => {
+            $refs.colorField.addClass('focus:ring-1 focus:ring-red-500/75')
+        })
+
+        pickr.on('hide', (instance) => {
+            $wire.colorSelected()
+            $refs.colorField.removeClass('focus:ring-1 focus:ring-red-500/75')
+        })
+">
     <div class="my-2 flex flex-row w-full">
-        <div class="h-10 font-sm lowercase basis-11/12 bg-white text-black rounded rounded-r-none p-3 flex items-center">
+        <div class="h-10 font-sm lowercase basis-11/12 bg-white text-[{{ $this->{$model} }}] rounded rounded-r-none shadow p-3 flex items-center font-bold" x-ref="colorField">
             {{ $this->{$model} }}
         </div>
-        <div class="rounded rounded-l-none border-gray-100 h-10 p-1 bg-[#FCFCFC]">
+        <div class="rounded rounded-l-none border-gray-100 h-10 p-1 bg-[#FAFAFA] shadow">
             <div wire:ignore>
                 <button class="color-picker border-black">
                     Pick a Color

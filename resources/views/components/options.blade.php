@@ -1,11 +1,14 @@
-<div>
-    @if($this->activeOption == \App\Enum\OptionsEnum::Colors->value)
-        <x-options.colors/>
-    @elseif($this->activeOption == \App\Enum\OptionsEnum::Margin->value)
-        <x-options.margin/>
-    @elseif($this->activeOption == \App\Enum\OptionsEnum::Label->value)
+<div class="grid grid-cols-2 gap-8">
+    <div class="pr-10 pt-5 mt-5">
         <x-options.label/>
-    @elseif($this->activeOption == \App\Enum\OptionsEnum::Logo->value)
+    </div>
+    <div class="pl-10 pt-5 mt-5">
+        <x-options.colors/>
+    </div>
+    <div class="pr-10 pt-3 mt-5">
+        <x-options.margin/>
+    </div>
+    <div class="pl-10 pt-3 mt-5">
         <x-options.logo/>
-    @endif
+    </div>
 </div>

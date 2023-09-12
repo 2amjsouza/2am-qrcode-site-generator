@@ -58,11 +58,13 @@ class QrCodeComponent extends Component
     #[On('apply-label')]
     public function applyLabel(string $label, int $size, string $alignment)
     {
-        $this->label = [
+        $this->label = ! empty($label)
+        ? [
             'label' => $label,
             'size' => $size,
             'align' => $alignment,
-        ];
+        ]
+        : null;
 
         $this->build();
     }

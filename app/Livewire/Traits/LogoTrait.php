@@ -3,8 +3,7 @@
 namespace App\Livewire\Traits;
 
 use App\Livewire\QrCodeComponent;
-use Illuminate\Support\Facades\Storage;
-use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+use Livewire\Attributes\On;
 use Livewire\WithFileUploads;
 
 trait LogoTrait
@@ -13,6 +12,7 @@ trait LogoTrait
 
     public $file;
 
+    #[On('upload:finished')]
     public function applyLogo()
     {
         $this->validate($this->getLogoRules());

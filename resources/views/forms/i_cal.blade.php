@@ -1,29 +1,19 @@
-@props(['options' => []])
-
-@php
-    $options = array_merge([
-                    'dateFormat' => 'Y-m-d',
-                    'enableTime' => false,
-                    'altFormat' =>  'j F Y',
-                    'altInput' => true
-                    ], []);
-@endphp
 <div>
-    <h6 class="text-xl mb-5 font-bold"> ICal Format </h6>
-
-    <span> Summary </span>
-    <x-inputs.text wire:model="form.summary"/>
+    <lable for="summary">
+        Summary <span class="text-tred">*</span>
+    </lable>
+    <x-inputs.text wire:model.lazy="form.summary" id="summary"/>
     <x-error :for="'form.summary'"/>
 
-    <span> Start </span>
-    <x-inputs.date-time :model="'form.startTimestamp'"/>
+    <label for="start">
+        Start <span class="text-tred">*</span>
+    </label>
+    <x-inputs.date-time :model="'form.startTimestamp'" id="start"/>
     <x-error :for="'form.startTimestamp'"/>
 
-    <span> End </span>
-    <x-inputs.date-time :model="'form.endTimestamp'"/>
+    <label for="end">
+        End <span class="text-tred">*</span>
+    </label>
+    <x-inputs.date-time :model="'form.endTimestamp'" id="end"/>
     <x-error :for="'form.endTimestamp'"/>
-
-    <x-inputs.success-button wire:click="create" class="mt-2">
-        Create QR Code
-    </x-inputs.success-button>
 </div>

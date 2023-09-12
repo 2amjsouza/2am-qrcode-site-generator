@@ -1,7 +1,16 @@
-<div class="mb-2 mt-2 pt-0">
-    <input type="file" placeholder="" {!! $attributes->merge([
-            'class' => 'px-3 py-2 placeholder-slate-300 text-slate-600 relative
-            bg-white bg-white rounded text-sm border-0 shadow outline-none
-            focus:outline-none focus:ring w-full h-10'
-        ]) !!}/>
+<div>
+    <label for="uploading-logo" class="cursor-pointer">
+        <div class="w-full flex flex-row shadow h-10
+            items-center p-3 mt-4 rounded text-gray-500
+            hover:font-bold hover:ring-1 ring-red-500
+            transition duration-150">
+            <span class="flex relative basis-11/12">
+                Upload a file
+            </span>
+            <div class="w-max relative justify-content-end">
+                <x-icons.upload/>
+            </div>
+        </div>
+    </label>
+    <input hidden type="file" id="uploading-logo" wire:model="{{$model}}">
 </div>

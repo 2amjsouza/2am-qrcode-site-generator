@@ -8,7 +8,7 @@ use Da\QrCode\Contracts\LabelInterface;
 trait LabelTrait
 {
     public string $label = '';
-    public int $size = 16;
+    public $size = 16;
     public string $align = LabelInterface::ALIGN_CENTER;
 
     public function applyLabel()
@@ -19,10 +19,17 @@ trait LabelTrait
             ->to(QrCodeComponent::class);
     }
 
+    public function updatedLabelTrait($property, $value)
+    {
+        if ($this->checkTraitProps($property, LabelTrait::class)) {
+            $this->applyLabel();
+        }
+    }
+
     public function getLabelRules(): array
     {
         return [
-            'label' => 'string|required',
+            'label' => 'string|nullable',
             'align' => 'string|required',
             'size' => 'int|required|min:1'
         ];

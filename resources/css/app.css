@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.label-option {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.label-option::before {
+    content: "";
+    display: flex;
+    width: 3px;
+    height: 3px;
+    padding: 3px;
+    background-color: #ff0000;
+    border-radius: 100%;
+    margin-right: 5px;
+}

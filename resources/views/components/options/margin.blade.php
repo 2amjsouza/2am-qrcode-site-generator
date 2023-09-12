@@ -1,9 +1,9 @@
-<div class="mt-5">
-    Margins
-    <x-inputs.text type="int" wire:model="margins" />
-    <x-error :for="'margins'"/>
+<div>
+    <h1 class="text-black text-[18px] font-bold mb-3"> Margin </h1>
+    <span>
+        Loren ipsum dolor describe function
+    </span>
 
-    <x-inputs.success-button type="button" wire:click.prevent="applyMargin">
-        Apply
-    </x-inputs.success-button>
+    <x-inputs.text type="int" wire:model.lazy="margins" class="mt-3" />
+    <x-error :for="'margins'"/>
 </div>

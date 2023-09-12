@@ -1,26 +1,25 @@
-<div class="mt-5">
-    Label
-    <x-inputs.text wire:model="label" />
+<div>
+    <h1 class="text-black text-[18px] font-bold mb-3"> Label </h1>
+    <span>
+        Loren ipsum dolor describe function
+    </span>
+    <x-inputs.text wire:model.lazy="label" class="mt-5" :placeholder="'Label'"/>
     <x-error :for="'label'"/>
 
     <div class="grid grid-cols-2 gap-4">
         <div>
-            Size
-            <x-inputs.text type="int" wire:model="size" />
+            <label for="size" class="label-option"> Size </label>
+            <x-inputs.text type="int" wire:model.lazy="size" />
             <x-error :for="'size'"/>
         </div>
         <div>
-            Alignment
-            <x-inputs.select wire:model="align">
-                <option value="{{\Da\QrCode\Contracts\LabelInterface::ALIGN_CENTER}}""> Center </option>
+            <label for="align" class="label-option"> Alignment </label>
+            <x-inputs.select wire:model.lazy="align">
+                <option value="{{\Da\QrCode\Contracts\LabelInterface::ALIGN_CENTER}}"> Center </option>
                 <option value="{{\Da\QrCode\Contracts\LabelInterface::ALIGN_LEFT}}"> Left </option>
                 <option value="{{\Da\QrCode\Contracts\LabelInterface::ALIGN_RIGHT}}"> Right </option>
             </x-inputs.select>
             <x-error :for="'align'"/>
         </div>
     </div>
-
-    <x-inputs.success-button type="button" wire:click.prevent="applyLabel">
-        Apply
-    </x-inputs.success-button>
 </div>

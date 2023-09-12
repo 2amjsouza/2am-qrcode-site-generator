@@ -20,6 +20,11 @@ class QrCodeForm extends Component
         $this->format = FormatEnum::tryFrom($formatType);
     }
 
+    public function updated($property, $value)
+    {
+        $this->create();
+    }
+
     public function create()
     {
         $this->validate();
