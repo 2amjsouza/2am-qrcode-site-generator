@@ -31,7 +31,7 @@
                 // Input / output Options
                 interaction: {
                     hexa: true,
-                    save: true,
+                    save: false,
                     input: true,
                 }
             }
@@ -41,10 +41,6 @@
             let selectedColor = color.toHEXA().toString()
             pickr.setColor(selectedColor)
             colorField = selectedColor
-        })
-
-        pickr.on('show', () => {
-            $refs.colorField.addClass('focus:ring-1 focus:ring-red-500/75')
         })
 
         pickr.on('hide', (instance) => {
