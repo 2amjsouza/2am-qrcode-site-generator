@@ -1,5 +1,5 @@
 <button {!! $attributes->merge([
-                'class' => 'rounded bg-tred py-3 px-5 text-white font-bold font-xs m-5 shadow
+                'class' => 'rounded-md bg-tred py-2 px-2 text-white font-bold text-xs shadow
                 hover:bg-red-500 transition duration-150'
             ]) !!}
         type="button"
