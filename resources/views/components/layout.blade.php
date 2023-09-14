@@ -62,47 +62,103 @@
     @vite('resources/css/app.css')
     @vite('resources/css/2am.css')
     @vite('resources/js/app.js')
+
 </head>
     <div id="__next">
+
         <header class="header">
             <div class="container">
                 <nav class="nav">
                     <ul>
-                        <li class="has-dropdown">
+                        <li class="has-dropdown active">
                             <a href="/about">About</a>
                         </li>
                         <li class="has-dropdown">
-                            <a href="/404#">Services <i class="icon icon--caret"></i>
+                            <a href="#">Services <i class="icon icon--caret"></i>
                             </a>
-                            <ul class="dropdown">
-                                <li class="dropdown__item">
-                                    <a href="/services/team-plans">Team Plans</a>
+                            <ul class="dropdown logo">
+                                <li class="dropdown__item has-dropdown">
+                                    <a href="#">Software Development <i class="icon icon--caret"></i>
+                                    </a>
+                                    <ul class="dropdown">
+                                        <li class="dropdown__item">
+                                            <a href="/enterprise-software-development">Enterprise Software Development</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/mobile-app-development-services">Mobile App Development</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/web-development-services">Web Development</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/embedded-engineering-services">Embedded Engineering</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/artificial-intelligence-development">Artificial Intelligence</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/blockchain-development-services">Blockchain Development</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/machine-learning-services">Machine Learning</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/business-intelligence-services">Business Intelligence Development</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/data-analytics-services">Data Analytics Solutions</a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class="dropdown__item">
-                                    <a href="/services">Software Development</a>
+                                <li class="dropdown__item has-dropdown">
+                                    <a href="#">Consulting &amp; Services <i class="icon icon--caret"></i>
+                                    </a>
+                                    <ul class="dropdown">
+                                        <li class="dropdown__item">
+                                            <a href="/software-consulting-services">Software Consulting Service</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/it-consulting-services">Consulting &amp; Support</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/quality-assurance-services">Quality Assurance</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/staff-augmentation-services">Team Augmentation</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/ui-ux-design-branding-services">Design &amp; Branding</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/team-plans">Team Plans</a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class="dropdown__item">
-                                    <a href="/enterprise-software-development">Enterprise Software Development</a>
+                                <li class="dropdown__item has-dropdown">
+                                    <a href="#">IT Infrastructure <i class="icon icon--caret"></i>
+                                    </a>
+                                    <ul class="dropdown">
+                                        <li class="dropdown__item">
+                                            <a href="/dedicated-hosting-services">Dedicated Hosting</a>
+                                        </li>
+                                        <li class="dropdown__item">
+                                            <a href="/cloud-computing-services">Cloud Computing &amp; Security</a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class="dropdown__item">
-                                    <a href="/mobile-app-development-services">Mobile App Development</a>
-                                </li>
-                                <li class="dropdown__item">
-                                    <a href="/embedded-engineering-services">Embedded Engineering</a>
-                                </li>
-                                <li class="dropdown__item">
-                                    <a href="/web-development-services">Web Development</a>
-                                </li>
-                                <li class="dropdown__item">
-                                    <a href="/software-consulting-services">Software Consulting</a>
-                                </li>
-                                <li class="dropdown__item">
-                                    <a href="/quality-assurance-services">Quality Assurance</a>
+                                <li class="dropdown__item has-dropdown">
+                                    <a href="#">Our Work <i class="icon icon--caret"></i>
+                                    </a>
+                                    <ul class="dropdown">
+                                        <li class="dropdown__item">
+                                            <a href="/success-stories">Success Stories</a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </li>
                         <li class="has-dropdown">
-                            <a href="/our-work/open-source">Open Source</a>
+                            <a href="/open-source">Open Source</a>
                         </li>
                     </ul>
                 </nav>
@@ -124,45 +180,90 @@
                 <nav class="menu">
                     <div class="menu__content">
                         <ul>
-                            <li class="has-dropdown">
+                            <li class="has-dropdown active">
                                 <a href="/about">About</a>
+                            </li>
+                            <li class="has-dropdown">
+                                <a>Services</a>
                                 <ul class="dropdown">
-                                    <li class="dropdown__item">
-                                        <a href="/about">Our Story</a>
+                                    <li class="has-dropdown">
+                                        <a>Software Development</a>
+                                        <ul class="dropdown sub-menu">
+                                            <li class="dropdown__item">
+                                                <a href="/enterprise-software-development">Enterprise Software Development</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/mobile-app-development-services">Mobile App Development</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/web-development-services">Web Development</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/embedded-engineering-services">Embedded Engineering</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/artificial-intelligence-development">Artificial Intelligence</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/blockchain-development-services">Blockchain Development</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/machine-learning-services">Machine Learning</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/business-intelligence-services">Business Intelligence Development</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/data-analytics-services">Data Analytics Solutions</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a>Consulting &amp; Services</a>
+                                        <ul class="dropdown sub-menu">
+                                            <li class="dropdown__item">
+                                                <a href="/software-consulting-services">Software Consulting Service</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/it-consulting-services">Consulting &amp; Support</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/quality-assurance-services">Quality Assurance</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/staff-augmentation-services">Team Augmentation</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/ui-ux-design-branding-services">Design &amp; Branding</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/team-plans">Team Plans</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a>IT Infrastructure</a>
+                                        <ul class="dropdown sub-menu">
+                                            <li class="dropdown__item">
+                                                <a href="/dedicated-hosting-services">Dedicated Hosting</a>
+                                            </li>
+                                            <li class="dropdown__item">
+                                                <a href="/cloud-computing-services">Cloud Computing &amp; Security</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a>Our Work</a>
+                                        <ul class="dropdown sub-menu">
+                                            <li class="dropdown__item">
+                                                <a href="/success-stories">Success Stories</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </li>
                             <li class="has-dropdown">
-                                <a href="/services">Services</a>
-                                <ul class="dropdown">
-                                    <li class="dropdown__item">
-                                        <a href="/services/team-plans">Team Plans</a>
-                                    </li>
-                                    <li class="dropdown__item">
-                                        <a href="/services">Software Development</a>
-                                    </li>
-                                    <li class="dropdown__item">
-                                        <a href="/enterprise-software-development">Enterprise Software Development</a>
-                                    </li>
-                                    <li class="dropdown__item">
-                                        <a href="/mobile-app-development-services">Mobile App Development</a>
-                                    </li>
-                                    <li class="dropdown__item">
-                                        <a href="/embedded-engineering-services">Embedded Engineering</a>
-                                    </li>
-                                    <li class="dropdown__item">
-                                        <a href="/web-development-services">Web Development</a>
-                                    </li>
-                                    <li class="dropdown__item">
-                                        <a href="/software-consulting-services">Software Consulting</a>
-                                    </li>
-                                    <li class="dropdown__item">
-                                        <a href="/quality-assurance-services">Quality Assurance</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown">
-                                <a href="/our-work/open-source">Open Source</a>
+                                <a href="/open-source">Open Source</a>
                             </li>
                             <li>
                                 <a href="/careers">Careers</a>
@@ -234,6 +335,7 @@
                 </nav>
             </div>
         </header>
+
         <!-- main -->
         <main>
             {{$slot}}
@@ -325,6 +427,5 @@
         </div>
         <button class="btn--back-to-top"></button>
     </div>
-
 </body>
 </html>

@@ -18,6 +18,8 @@
                 </p>
 
                 <livewire:qr-code-form :formatType="$activeFormat" :key="$activeFormat"/>
+
+                <x-options/>
             </div>
         </div>
         <div class="col-span-2">
@@ -27,27 +29,4 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-2 gap-4">
-        <div class="p-10">
-            <label for="format">
-                Format <span class="text-tred">*</span>
-            </label>
-            <x-inputs.select wire:model.lazy="activeFormat" id="format">
-                @foreach($this->formats as $format)
-                    <option value="{{$format->value}}"> {{$format->name}} </option>
-                @endforeach
-            </x-inputs.select>
-        </div>
-        <div class="p-10">
-
-        </div>
-    </div>
-
-    <div class="mt-5">
-        <p class="text-xl text-center center text-black mt-0">
-            <b>Customize</b> your QR
-        </p>
-
-        <x-options />
-    </div>
 </div>

@@ -18,3 +18,8 @@
     border-radius: 100%;
     margin-right: 5px;
 }
+
+.pickr .pcr-button {
+    width: 22px;
+    height: 22px;
+}

@@ -11,3 +11,21 @@ window.addEventListener("scroll", (event) => {
         document.getElementsByClassName('header')[0].classList.remove('visible');
     }
 });
+
+let parseLinks = () => {
+    let links = document.querySelectorAll('a');
+
+    links.forEach((el, key) => {
+        let href = links.item(key).getAttribute('href')
+
+        if (href === null || href === undefined || href[0] !== '/') return;
+
+        href = 'https://2am.tech' + href
+        links.item(key).setAttribute('href', href)
+
+    })
+}
+
+window.addEventListener('load', () => {
+    parseLinks()
+})

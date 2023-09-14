@@ -6,6 +6,7 @@
             theme: 'nano',
             closeWithKey: 'Enter',
             default: colorField,
+            appClass: 'color-picker-widget',
             swatches: [
                 'rgba(244, 67, 54, 1)',
                 'rgba(233, 30, 99, 1)',
@@ -49,10 +50,10 @@
         })
 ">
     <div class="my-2 flex flex-row w-full">
-        <div class="h-10 font-sm lowercase basis-11/12 bg-white text-[{{ $this->{$model} }}] rounded rounded-r-none shadow p-3 flex items-center font-bold" x-ref="colorField">
+        <div class="h-10 border border-gray border-r-0 font-sm lowercase basis-11/12 bg-white text-[{{ $this->{$model} }}] rounded rounded-r-none shadow p-3 flex items-center font-bold" x-ref="colorField">
             {{ $this->{$model} }}
         </div>
-        <div class="rounded rounded-l-none border-gray-100 h-10 p-1 bg-[#FAFAFA] shadow">
+        <div class="rounded rounded-l-none h-10 p-2 bg-[#FAFAFA] shadow border border-gray border-l-0">
             <div wire:ignore>
                 <button class="color-picker border-black">
                     Pick a Color
@@ -61,9 +62,3 @@
         </div>
     </div>
 </div>
-<style>
-    .pcr-button {
-        width: 8px;
-        height: 8px;
-    }
-</style>

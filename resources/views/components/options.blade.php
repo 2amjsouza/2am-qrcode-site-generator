@@ -1,14 +1,27 @@
-<div class="grid grid-cols-2 gap-8">
-    <div class="pr-10 pt-5 mt-5">
+<div class="w-full" x-data="{
+        showing: null,
+        toggle: function(option) {
+            if (showing == option) {
+                showing = 'none'
+            } else {
+                showing = option
+            }
+        },
+    }">
+
+    <x-options.swag :option="'label'" :title="'Choose a <strong>Label</strong> for your QR'" :icon="'icons.label'">
         <x-options.label/>
-    </div>
-    <div class="pl-10 pt-5 mt-5">
+    </x-options.swag>
+
+    <x-options.swag :option="'colors'" :title="'Choose the <strong>Colors</strong> or your QR'" :icon="'icons.colors'">
         <x-options.colors/>
-    </div>
-    <div class="pr-10 pt-3 mt-5">
+    </x-options.swag>
+
+    <x-options.swag :option="'margin'" :title="'Set the <strong>Margins</strong> or your QR'" :icon="'icons.screen'">
         <x-options.margin/>
-    </div>
-    <div class="pl-10 pt-3 mt-5">
+    </x-options.swag>
+
+    <x-options.swag :option="'logo'" :title="'Add a <strong>Logo</strong> to your QR'" :icon="'icons.image'">
         <x-options.logo/>
-    </div>
+    </x-options.swag>
 </div>
