@@ -8,12 +8,12 @@
     <label for="amount">
         Amount <span class="text-tred">*</span>
     </label>
-    <x-inputs.text wire:model="form.amount" id="amount"/>
+    <x-inputs.text wire:model.lazy="form.amount" id="amount"/>
     <x-error :for="'form.amount'"/>
 
     <label for="name">
         Name <span class="text-tred">*</span>
     </label>
-    <x-inputs.text wire:model="form.name" id="name"/>
+    <x-inputs.text wire:model.lazy="form.name" id="name"/>
     <x-error :for="'form.name'"/>
 </div>

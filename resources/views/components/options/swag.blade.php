@@ -1,5 +1,5 @@
 <div>
-    <div class="flex flex-row items-center bg-gray-50 py-2 px-4 gap-4 rounded border border-gray cursor-pointer" @click="toggle('{{$option}}')">
+    <div class="flex flex-row items-center bg-gray-50 py-2 px-4 gap-4 rounded border border-gray cursor-pointer" x-on:click="setShowing('{{$option}}')">
         <x-dynamic-component :component="$icon"/>
         <span class="font-bold basis-11/12">
                 {!! $title !!}

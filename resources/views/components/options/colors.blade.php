@@ -4,7 +4,7 @@
         Loren ipsum dolor describe function
     </span>
 
-    <div class="grid grid-cols-2 gap-10 mt-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 mt-8">
         <div>
             <label for="foreground" class="label-option"> Line Color </label>
             <x-inputs.color-picker :model="'strForeground'" id="foreground"/>

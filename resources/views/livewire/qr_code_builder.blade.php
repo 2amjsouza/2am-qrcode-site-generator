@@ -1,29 +1,23 @@
 <div class="border-t-2 border-t-tred">
-    <div class="flex flex-wrap justify-between mt-5">
-        @foreach($this->formats as $format)
-            <x-menu-item
-                wire:click="selectFormat({{$format->value}})"
-                class="{{$format->value === $activeFormat ? 'text-tred border-b hover:border-b-gray' : ''}}"
-            >
-                {{$format->name}}
-            </x-menu-item>
-        @endforeach
-    </div>
+    <x-menu-options :activeFormat="$activeFormat"/>
 
-    <div class="grid grid-cols-6 gap-4 mt-10">
+    <x-menu-options-mobile :activeFormat="$activeFormat"/>
+
+    <div class="grid grid-cols-1 md:grid-cols-6 md:gap-4 mt-10">
         <div class="col-span-4">
-            <div class="w-full">
-                <p class="text-xl text-center center text-black mb-5">
-                    Set your QR <b>Content</b>
-                </p>
-
+            <div class="w-full px-2">
+                <div class="mb-5">
+                    <p class="text-xl text-center center text-black mb-2">
+                        Set your QR <b>Content</b>
+                    </p>
+                </div>
                 <livewire:qr-code-form :formatType="$activeFormat" :key="$activeFormat"/>
 
-                <x-options/>
+                <x-options />
             </div>
         </div>
         <div class="col-span-2">
-            <div class="">
+            <div class="px-2">
                 <livewire:qr-code-component />
             </div>
         </div>

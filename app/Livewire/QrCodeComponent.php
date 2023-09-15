@@ -9,11 +9,14 @@ use Da\QrCode\Label;
 use Da\QrCode\QrCode;
 use Da\QrCode\Writer\JpgWriter;
 use Illuminate\Support\Facades\Storage;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\On;
 use Livewire\Component;
-
+use Exception;
 class QrCodeComponent extends Component
 {
+    use LivewireAlert;
+
     protected QrCode $qrCode;
     public int $format;
     public array $options;
@@ -27,12 +30,17 @@ class QrCodeComponent extends Component
 
     public function mount()
     {
-        $this->format= FormatEnum::Text->value;
+        $this->init();
+    }
+
+    protected function init($notify = false)
+    {
+        $this->format = FormatEnum::Text->value;
         $this->options = [
             'text' => 'https://2am.tech',
         ];
 
-        $this->build();
+        $this->build(notify: $notify);
     }
 
     #[On('create-qr-code')]
@@ -85,44 +93,55 @@ class QrCodeComponent extends Component
         $this->build();
     }
 
-    public function build()
+    public function build($notify = true)
     {
         $this->normalizeOptions();
 
-        /** @var QrCode $qrCode */
-        $qrCode = QrCodeFactory::build($this->format, $this->options);
+        try {
+            /** @var QrCode $qrCode */
+            $qrCode = QrCodeFactory::build($this->format, $this->options);
 
-        if ($bgColors = $this->colors['background']) {
-            $qrCode->setBackgroundColor($bgColors['r'], $bgColors['g'], $bgColors['b']);
+            if ($bgColors = $this->colors['background']) {
+                $qrCode->setBackgroundColor($bgColors['r'], $bgColors['g'], $bgColors['b']);
+            }
+
+            if ($fgColors = $this->colors['foreground']) {
+                $qrCode->setForegroundColor($fgColors['r'], $fgColors['g'], $fgColors['b']);
+            }
+
+            if ($label = $this->label) {
+                $qrCode->setLabel(new Label(
+                    text: $label['label'],
+                    fontSize: $label['size'],
+                    align: $label['align'],
+                ));
+            }
+
+            if ($margins = $this->margins) {
+                $qrCode->setMargin($margins);
+            }
+
+            if (! is_null($this->logoPath)) {
+                $qrCode->setLogo($this->logoPath)
+                    ->setLogoWidth(((int) $qrCode->getSize() * 0.16));
+            }
+
+            $this->qrCode = $qrCode;
+
+            if ($notify) {
+                $this->alert('success', 'QR Code updated!');
+            }
+        } catch (Exception $exception) {
+            $this->init();
+            $this->alert('error', $exception->getMessage());
         }
-
-        if ($fgColors = $this->colors['foreground']) {
-            $qrCode->setForegroundColor($fgColors['r'], $fgColors['g'], $fgColors['b']);
-        }
-
-        if ($label = $this->label) {
-            $qrCode->setLabel(new Label(
-                text: $label['label'],
-                fontSize: $label['size'],
-                align: $label['align'],
-            ));
-        }
-
-        if ($margins = $this->margins) {
-            $qrCode->setMargin($margins);
-        }
-
-        if (! is_null($this->logoPath)) {
-            $qrCode->setLogo($this->logoPath)
-                ->setLogoWidth(((int) $qrCode->getSize() * 0.16));
-        }
-
-        $this->qrCode = $qrCode;
     }
 
     public function getUri()
     {
-        return $this->qrCode->writeDataUri();
+        return isset($this->qrCode)
+            ? $this->qrCode->writeDataUri()
+            : '';
     }
 
     public function download(string $extension)

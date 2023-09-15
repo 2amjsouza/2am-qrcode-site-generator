@@ -4,6 +4,7 @@
             transition duration-100'
     ]) }}
     {{ $attributes->whereStartsWith('wire:click') }}
+    {{ $attributes->whereDoesntStartWith('wire:click') }}
     >
     {{ $slot }}
 </div>

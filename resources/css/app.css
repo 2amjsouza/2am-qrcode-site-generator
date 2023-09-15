@@ -23,3 +23,17 @@
     width: 22px;
     height: 22px;
 }
+
+.options-menu-mobile {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    .options-menu {
+        display: none !important;
+    }
+
+    .options-menu-mobile {
+        display: block !important;
+    }
+}

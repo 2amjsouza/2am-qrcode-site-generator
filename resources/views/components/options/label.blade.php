@@ -3,7 +3,7 @@
     <span>
         Loren ipsum dolor describe function
     </span>
-    <x-inputs.text wire:model.lazy="label" class="mt-5" :placeholder="'Label'"/>
+    <x-inputs.text wire:model.lazy="label" :placeholder="'Label'" class="mt-3"/>
     <x-error :for="'label'"/>
 
     <div class="grid grid-cols-2 gap-4">

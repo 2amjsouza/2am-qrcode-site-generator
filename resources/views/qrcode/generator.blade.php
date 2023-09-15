@@ -11,7 +11,7 @@
                 <div>
                     <h6>
                         <div class="flex text-gray-800">
-                            <div class="bg-gray-500 rounded-full mr-3">
+                            <div class="bg-gray-500 p-2 md:p-0 md:rounded-full mr-3 flex items-center h-auto">
                                 <i class="icon icon--github"></i>
                             </div>
                             This is an online DEMO of the qr code library
