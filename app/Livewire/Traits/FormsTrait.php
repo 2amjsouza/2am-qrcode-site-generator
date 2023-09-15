@@ -68,7 +68,7 @@ trait FormsTrait
                 'password' => 'string|required',
             ],
             FormatEnum::Youtube->value => [
-                'videoId' => 'string',
+                'videoId' => 'regex:(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*))',
             ],
             FormatEnum::MeCard->value => [
                 'firstName' => 'string|required',

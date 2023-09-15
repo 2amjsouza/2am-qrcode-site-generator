@@ -18,6 +18,7 @@ class QrCodeComponent extends Component
     use LivewireAlert;
 
     protected QrCode $qrCode;
+    public string $uri;
     public int $format;
     public array $options;
     public array $colors = [
@@ -30,17 +31,11 @@ class QrCodeComponent extends Component
 
     public function mount()
     {
-        $this->init();
-    }
-
-    protected function init($notify = false)
-    {
         $this->format = FormatEnum::Text->value;
-        $this->options = [
-            'text' => 'https://2am.tech',
-        ];
+        $this->options = ['text' => 'https://2am.tech'];
+        $this->qrCode = QrCodeFactory::build($this->format, $this->options);
 
-        $this->build(notify: $notify);
+        $this->setUri();
     }
 
     #[On('create-qr-code')]
@@ -48,8 +43,6 @@ class QrCodeComponent extends Component
     {
         $this->format = $format;
         $this->options = $options;
-
-        $this->build();
     }
 
     #[On('apply-colors')]
@@ -59,8 +52,6 @@ class QrCodeComponent extends Component
             'background' => $background,
             'foreground' => $foreground,
         ];
-
-        $this->build();
     }
 
     #[On('apply-label')]
@@ -73,31 +64,25 @@ class QrCodeComponent extends Component
             'align' => $alignment,
         ]
         : null;
-
-        $this->build();
     }
 
     #[On('apply-margin')]
     public function applyMargin(int $margins)
     {
         $this->margins = $margins;
-
-        $this->build();
     }
 
     #[On('apply-logo')]
     public function applyLogo(string $path)
     {
         $this->logoPath = $path;
-
-        $this->build();
     }
 
-    public function build($notify = true)
+    public function build()
     {
-        $this->normalizeOptions();
-
         try {
+            $this->normalizeOptions();
+
             /** @var QrCode $qrCode */
             $qrCode = QrCodeFactory::build($this->format, $this->options);
 
@@ -127,21 +112,18 @@ class QrCodeComponent extends Component
             }
 
             $this->qrCode = $qrCode;
+            $this->setUri();
 
-            if ($notify) {
-                $this->alert('success', 'QR Code updated!');
-            }
+            $this->alert('success', 'QR Code updated!');
         } catch (Exception $exception) {
             $this->init();
             $this->alert('error', $exception->getMessage());
         }
     }
 
-    public function getUri()
+    public function setUri()
     {
-        return isset($this->qrCode)
-            ? $this->qrCode->writeDataUri()
-            : '';
+        $this->uri = $this->qrCode->writeDataUri();
     }
 
     public function download(string $extension)
@@ -159,8 +141,8 @@ class QrCodeComponent extends Component
     }
 
     /**
-     * set the options the meet current's format data type
      * @return void
+     * @throws Exception
      */
     protected function normalizeOptions(): void
     {
@@ -172,6 +154,19 @@ class QrCodeComponent extends Component
             $this->options['endTimestamp'] = Carbon::parse($this->options['endTimestamp'])
                 ->timezone(null)
                 ->getTimestamp();
+        }
+
+        if ($this->format === FormatEnum::Youtube->value) {
+            $url = $this->options['videoId'];
+
+            $matches = null;
+            preg_match('/(?<=v=).*(?=&)/', $url, $matches);
+
+            if (!is_array($matches) || empty($matches)) {
+                throw new Exception('Invalid URl');
+            }
+
+            $this->options['videoId'] = $matches[0];
         }
     }
 

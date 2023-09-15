@@ -3,7 +3,7 @@
         <div class="w-full flex flex-row shadow h-10
             items-center p-3 mt-4 rounded text-gray-500">
             <span class="flex relative basis-11/12">
-                Upload a file
+                {{ $this->file ? $this->file->getClientOriginalName() : __('Upload a file') }}
             </span>
             <div class="w-max relative justify-content-end">
                 <x-icons.upload/>

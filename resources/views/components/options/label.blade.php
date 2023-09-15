@@ -1,7 +1,7 @@
 <div>
     <h1 class="text-black text-[18px] font-bold mb-3"> Label </h1>
-    <span>
-        Loren ipsum dolor describe function
+    <span class="text-gray-400">
+        Define a Label and how it will be displayed under your generated QR Code
     </span>
     <x-inputs.text wire:model.lazy="label" :placeholder="'Label'" class="mt-3"/>
     <x-error :for="'label'"/>
