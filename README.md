@@ -4,6 +4,7 @@
 * PHP 8.1+
 * Imagick
 * GD
+* npm 16.+
 
 ### Install
 

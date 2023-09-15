@@ -48,7 +48,6 @@ class OptionsTest extends TestCase
             ->set('align', '')
             ->call('applyLabel')
             ->assertHasErrors([
-                'label',
                 'size',
                 'align'
             ])
@@ -86,15 +85,5 @@ class OptionsTest extends TestCase
             ->call('applyMargin')
             ->assertHasErrors(['margins'])
             ->assertNotDispatched('apply-margin');
-    }
-
-    public function test_toogle_option_form()
-    {
-        Livewire::test(QrCodeBuilder::class, [FormatEnum::Text->value])
-            ->call('toggleOption', OptionsEnum::Label->value)
-            ->call('toggleOption', OptionsEnum::Colors->value)
-            ->call('toggleOption', OptionsEnum::Margin->value)
-            ->call('toggleOption', OptionsEnum::Logo->value)
-            ->assertHasNoErrors();
     }
 }

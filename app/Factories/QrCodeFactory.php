@@ -20,9 +20,9 @@ class QrCodeFactory
      */
     public static function build(int $format, array $content): ?QrCodeInterface
     {
-        try {
-            $format = FormatEnum::tryFrom($format);
-        } catch (Exception $exception) {
+        $format = FormatEnum::tryFrom($format);
+
+        if (is_null($format)) {
             throw new Exception('Format must be enum of ' . FormatEnum::class);
         }
 
