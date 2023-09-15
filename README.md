@@ -33,7 +33,12 @@ $ ./vendor/bin/sail up -d
 $ ./vendor/bin/sail npm run build
 ```
 
-tp stop the docker machine:
+to stop the docker machine:
 ```bash
 $ ./vendor/bin/sail stop
+```
+
+There is a command available to clean up the files from local:
+```bash
+$ php artisan tmp-files:clear 
 ```
