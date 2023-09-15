@@ -1,5 +1,10 @@
 ## 2amigos/qrcode-library site - qrcode generator
 
+### Requirements:
+* PHP 8.1+
+* Imagick
+* GD
+
 ### Install
 
 ```bash
